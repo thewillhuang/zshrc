@@ -81,7 +81,6 @@ source $ZSH/oh-my-zsh.sh
 
 DISABLE_UPDATE_PROMPT=true
 
-
 alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
 
 # fix docker when it breaks
@@ -96,10 +95,9 @@ alias resetdocker='brew update \
               && eval $(boot2docker shellinit)'
 
 # fresh setup on computer
-alias setupmac='xcode-select --install \
-                && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" \
-                && brew install git curl boot2docker youtube-dl nvm thefuck bash-completion redis mongodb docker\
-                && brew install ffmpeg --with-faac --with-libssh --with-libvorbis --with-libvpx --with-openssl --with-opus --with-theora --with-webp --with-x265
+alias setupmac='ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" \
+                && brew install git curl boot2docker youtube-dl nvm thefuck bash-completion redis mongodb docker \
+                && brew install ffmpeg --with-faac --with-libssh --with-libvorbis --with-libvpx --with-openssl --with-opus --with-theora --with-webp --with-x265 \
                 && nvm install iojs \
                 && npm i -g gulp grunt-cli bower forever'
 
