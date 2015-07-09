@@ -81,8 +81,13 @@ source $ZSH/oh-my-zsh.sh
 
 DISABLE_UPDATE_PROMPT=true
 
+
 alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
-alias b2boot='brew uninstall docker boot2docker \
+
+# fix docker when it breaks
+alias resetdocker='brew update \
+              && brew doctor \
+              && brew uninstall docker boot2docker \
               && brew install docker boot2docker \
               && boot2docker stop \
               && boot2docker delete \
@@ -90,9 +95,22 @@ alias b2boot='brew uninstall docker boot2docker \
               && boot2docker up \
               && eval $(boot2docker shellinit)'
 
+# fresh setup on computer
+alias setupmac='xcode-select --install \
+                && ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" \
+                && brew install git curl boot2docker youtube-dl nvm thefuck bash-completion redis mongodb docker\
+                && brew install ffmpeg --with-faac --with-libssh --with-libvorbis --with-libvpx --with-openssl --with-opus --with-theora --with-webp --with-x265
+                && nvm install iojs \
+                && npm i -g gulp grunt-cli bower forever'
+
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 nvm use iojs
 
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
+
+boot2docker init
 boot2docker up
 eval "$(boot2docker shellinit)"
