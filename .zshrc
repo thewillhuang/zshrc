@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/William/.oh-my-zsh
+export ZSH=/Users/william/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -9,6 +9,10 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -81,10 +85,13 @@ source $ZSH/oh-my-zsh.sh
 
 DISABLE_UPDATE_PROMPT=true
 
-alias unode='nvm install node \
+alias unode='ubrew \
+            && nvm install node \
             && inode'
 
-alias inode='npm i -g gulp bower npm-check-updates gulper mocha react-native-cli nodemon'
+alias inode='npm install -g gulp bower npm-check-updates gulper mocha react-native-cli nodemon pm2'
+
+alias ubrew='brew update && brew doctor && brew upgrade'
 
 #nvm
 export NVM_DIR=~/.nvm
@@ -97,3 +104,12 @@ source /usr/local/share/zsh/site-functions/_aws
 # docker
 docker-machine start dev
 eval "$(docker-machine env dev)"
+
+#kube
+export PATH=~/kubernetes/platforms/darwin/amd64:$PATH
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/william/google-cloud-sdk/path.zsh.inc'
+
+# The next line enables shell command completion for gcloud.
+source '/Users/william/google-cloud-sdk/completion.zsh.inc'
