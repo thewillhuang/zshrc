@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/william/.oh-my-zsh
+export ZSH=/Users/willh/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -85,13 +85,38 @@ source $ZSH/oh-my-zsh.sh
 
 DISABLE_UPDATE_PROMPT=true
 
-alias unode='ubrew \
-            && nvm install node \
-            && inode'
+alias u='ubrew; \
+      ibrew; \
+      udocker; \
+      rnode; \
+      inode;'
 
-alias inode='npm install -g gulp bower npm-check-updates gulper mocha react-native-cli nodemon pm2'
+alias ubrew='brew update; brew doctor; brew upgrade;'
 
-alias ubrew='brew update && brew doctor && brew upgrade'
+alias ibrew='brew install nvm watchman vault go flow rbenv mysql postgresql rethinkdb redis awscli multirust imagemagick docker docker-machine docker-swarm docker-cloud'
+
+alias udocker='docker-machine upgrade dev;'
+
+alias rnode='nvm use 4; nvm uninstall node; nvm install node; nvm uninstall 4; nvm install 4; nvm use node;'
+
+alias inode='npm i -g gulp serverless mocha babel-cli react-native-cli npm-check-updates;'
+
+alias k='killall Dock; killall -9 node; killall -9 ruby'
+
+alias p='~/workspace/procore; git pull; bundle exec rake db:migrate; bundle install; ~/workspace/wrench; git pull;'
+alias w='~/workspace/wrench; npm run dev;'
+alias pro='~/workspace/procore; bundle exec rails s -b 0.0.0.0;'
+alias o='ssh db1.office.procore;'
+alias a='atom .;'
+alias c='code .;'
+alias gp='git pull;'
+alias gpod='git pull origin develop;'
+alias gpom='git pull origin master;'
+alias gsu='git submodule update;'
+alias gc='git checkout'
+alias nr='npm run'
+alias gs='git status;'
+alias gd='git diff'
 
 #nvm
 export NVM_DIR=~/.nvm
@@ -105,11 +130,18 @@ source /usr/local/share/zsh/site-functions/_aws
 docker-machine start dev
 eval "$(docker-machine env dev)"
 
-#kube
-export PATH=~/kubernetes/platforms/darwin/amd64:$PATH
+#ruby
+export RBENV_ROOT=/usr/local/var/rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-# The next line updates PATH for the Google Cloud SDK.
-source '/Users/william/google-cloud-sdk/path.zsh.inc'
+#lunchy
+LUNCHY_DIR=$(dirname `gem which lunchy`)/../extras
+if [ -f $LUNCHY_DIR/lunchy-completion.zsh ]; then
+  . $LUNCHY_DIR/lunchy-completion.zsh
+fi
 
-# The next line enables shell command completion for gcloud.
-source '/Users/william/google-cloud-sdk/completion.zsh.inc'
+#vs code
+function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*; }
+
+#prevent app from reload
+defaults write -g ApplePersistence -bool no
