@@ -93,17 +93,17 @@ alias u='ubrew; \
 
 alias ubrew='brew update; brew doctor; brew upgrade;'
 
-alias ibrew='brew install nvm watchman vault go flow rbenv mysql postgresql rethinkdb redis awscli multirust imagemagick docker docker-machine docker-swarm docker-cloud'
+alias ibrew='brew install youtube-dl ffmpeg --with-fdk-aac --with-ffplay --with-freetype --with-libass --with-libquvi --with-libvorbis --with-libvpx --with-opus --with-x265 nvm watchman vault go flow rbenv mysql postgresql rethinkdb redis awscli multirust docker docker-machine docker-swarm docker-cloud tidy-html5'
 
 alias udocker='docker-machine upgrade dev;'
 
 alias rnode='nvm use 4; nvm uninstall node; nvm install node; nvm uninstall 4; nvm install 4; nvm use node;'
 
-alias inode='npm i -g gulp serverless mocha babel-cli react-native-cli npm-check-updates;'
+alias inode='npm i -g serverless react-native-cli npm-check-updates;'
 
 alias k='killall Dock; killall -9 node; killall -9 ruby'
 
-alias p='~/workspace/procore; git pull; bundle exec rake db:migrate; bundle install; ~/workspace/wrench; git pull;'
+alias p='~/workspace/procore; git pull; bundle exec rake db:migrate; bundle install; gsu; ~/workspace/wrench; git pull; rm -rf node_modules; npm i;'
 alias w='~/workspace/wrench; npm run dev;'
 alias pro='~/workspace/procore; bundle exec rails s -b 0.0.0.0;'
 alias o='ssh db1.office.procore;'
@@ -117,6 +117,8 @@ alias gc='git checkout'
 alias nr='npm run'
 alias gs='git status;'
 alias gd='git diff'
+alias gl='git log;'
+alias dl="youtube-dl -o '%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' -x -n -i"
 
 #nvm
 export NVM_DIR=~/.nvm
