@@ -118,7 +118,7 @@ alias nr='npm run'
 alias gs='git status;'
 alias gd='git diff'
 alias gl='git log;'
-alias dl="youtube-dl -o '%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' -x -n -i"
+alias dl="youtube-dl -o '%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' -x -n -i --audio-format 'aac' --audio-quality 0"
 
 #nvm
 export NVM_DIR=~/.nvm
