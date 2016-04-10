@@ -103,22 +103,28 @@ alias inode='npm i -g serverless react-native-cli npm-check-updates;'
 
 alias k='killall Dock; killall -9 node; killall -9 ruby'
 
-alias p='~/workspace/procore; git pull; bundle exec rake db:migrate; bundle install; gsu; ~/workspace/wrench; git pull; rm -rf node_modules; npm i;'
+alias p='~/workspace/procore; git pull; bundle exec rake db:migrate; bundle install; gsu; ~/workspace/wrench; git pull;'
 alias w='~/workspace/wrench; npm run dev;'
-alias pro='~/workspace/procore; bundle exec rails s -b 0.0.0.0;'
+alias pro='~/workspace/procore; WRENCH=hot bundle exec puma -p 3000;'
 alias o='ssh db1.office.procore;'
 alias a='atom .;'
-alias c='code .;'
 alias gp='git pull;'
+alias gprune='git branch | grep -v "develop" | xargs git branch -D'
 alias gpod='git pull origin develop;'
 alias gpom='git pull origin master;'
 alias gsu='git submodule update;'
 alias gc='git checkout'
 alias nr='npm run'
+alias n='npm'
+alias nt='n test'
+alias ni='n i'
+alias ns='nr start'
+alias nd='nr dev'
+alias np='nr prod'
 alias gs='git status;'
 alias gd='git diff'
 alias gl='git log;'
-alias dl="youtube-dl -o '%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' -x -n -i --audio-format 'aac' --audio-quality 0"
+alias dl="youtube-dl -o '%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' -x -i --audio-format 'mp3' --audio-quality 0"
 
 #nvm
 export NVM_DIR=~/.nvm
@@ -141,9 +147,6 @@ LUNCHY_DIR=$(dirname `gem which lunchy`)/../extras
 if [ -f $LUNCHY_DIR/lunchy-completion.zsh ]; then
   . $LUNCHY_DIR/lunchy-completion.zsh
 fi
-
-#vs code
-function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*; }
 
 #prevent app from reload
 defaults write -g ApplePersistence -bool no
