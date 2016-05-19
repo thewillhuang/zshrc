@@ -89,11 +89,12 @@ alias u='ubrew; \
       ibrew; \
       udocker; \
       rnode; \
-      inode;'
+      inode;
+      p;'
 
 alias ubrew='brew update; brew doctor; brew upgrade;'
 
-alias ibrew='brew install youtube-dl ffmpeg --with-fdk-aac --with-ffplay --with-freetype --with-libass --with-libquvi --with-libvorbis --with-libvpx --with-opus --with-x265 nvm watchman vault go flow rbenv mysql postgresql rethinkdb redis awscli multirust docker docker-machine docker-swarm docker-cloud tidy-html5'
+alias ibrew='brew install youtube-dl ffmpeg --with-fdk-aac --with-ffplay --with-freetype --with-libass --with-libquvi --with-libvorbis --with-libvpx --with-opus --with-x265 watchman nvm flow vault go rbenv elixir multirust mysql postgresql rethinkdb redis awscli docker docker-machine docker-swarm docker-cloud kubernetes-cli git'
 
 alias udocker='docker-machine upgrade dev;'
 
@@ -103,13 +104,22 @@ alias inode='npm i -g serverless react-native-cli npm-check-updates;'
 
 alias k='killall Dock; killall -9 node; killall -9 ruby'
 
-alias p='~/workspace/procore; git pull; bundle exec rake db:migrate; bundle install; gsu; ~/workspace/wrench; git pull;'
+alias p='~/workspace/procore; gp; bundle exec rake db:migrate; bundle install; gsu; ~/workspace/wrench; gp;'
 alias w='~/workspace/wrench; npm run dev;'
-alias pro='~/workspace/procore; WRENCH=hot bundle exec puma -p 3000;'
+alias wie='~/workspace/wrench; npm run vm;'
+alias prohot='~/workspace/procore; WRENCH=hot bundle exec puma -p 3000;'
+alias proh='~/workspace/procore; WRENCH=hot bundle exec puma -p 3000;'
+alias prolocal='~/workspace/procore; WRENCH=local bundle exec puma -p 3000;'
+alias prol='~/workspace/procore; WRENCH=local bundle exec puma -p 3000;'
+alias prod='~/workspace/procore; bundle exec puma -p 3000;'
+alias prodefault='~/workspace/procore; bundle exec puma -p 3000;'
+alias proie='~/workspace/procore; WRENCH=ievm bundle exec puma -p 3000;'
 alias o='ssh db1.office.procore;'
 alias a='atom .;'
+alias e='exit;'
 alias gp='git pull;'
-alias gprune='git branch | grep -v "develop" | xargs git branch -D'
+alias gprunedevelop='git branch | grep -v "develop" | xargs git branch -D'
+alias gprunemaster='git branch | grep -v "master" | xargs git branch -D'
 alias gpod='git pull origin develop;'
 alias gpom='git pull origin master;'
 alias gsu='git submodule update;'
@@ -122,6 +132,7 @@ alias ns='nr start'
 alias nd='nr dev'
 alias np='nr prod'
 alias gs='git status;'
+alias ga='git merge --abort'
 alias gd='git diff'
 alias gl='git log;'
 alias dl="youtube-dl -o '%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' -x -i --audio-format 'mp3' --audio-quality 0"
@@ -150,3 +161,9 @@ fi
 
 #prevent app from reload
 defaults write -g ApplePersistence -bool no
+
+#rehash
+hash -r
+
+#keychain
+git config --global credential.helper osxkeychain
