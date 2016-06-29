@@ -89,22 +89,21 @@ alias u='ubrew; \
       ibrew; \
       udocker; \
       rnode; \
-      inode;
-      p;'
+      inode;'
 
 alias ubrew='brew update; brew doctor; brew upgrade;'
 
-alias ibrew='brew install youtube-dl ffmpeg --with-fdk-aac --with-ffplay --with-freetype --with-libass --with-libquvi --with-libvorbis --with-libvpx --with-opus --with-x265 watchman nvm flow vault go rbenv elixir multirust mysql postgresql rethinkdb redis awscli docker docker-machine docker-swarm docker-cloud kubernetes-cli git'
+alias ibrew='brew install youtube-dl ffmpeg --with-fdk-aac --with-ffplay --with-freetype --with-libass --with-libquvi --with-libvorbis --with-libvpx --with-opus --with-x265 watchman nvm flow vault go rbenv elixir multirust mysql postgresql rethinkdb redis awscli docker docker-machine kubernetes-cli git otto terraform packer nomad'
 
 alias udocker='docker-machine upgrade dev;'
 
 alias rnode='nvm use 4; nvm uninstall node; nvm install node; nvm uninstall 4; nvm install 4; nvm use node;'
 
-alias inode='npm i -g serverless react-native-cli npm-check-updates;'
+alias inode='npm i -g react-native-cli npm-check-updates;'
 
 alias k='killall Dock; killall -9 node; killall -9 ruby'
 
-alias p='~/workspace/procore; gp; bundle exec rake db:migrate; bundle install; gsu; ~/workspace/wrench; gp;'
+alias p='~/workspace/procore; gp; gem install bundler; bundle install; gsu; ~/workspace/wrench; gp;'
 alias w='~/workspace/wrench; npm run dev;'
 alias wie='~/workspace/wrench; npm run vm;'
 alias prohot='~/workspace/procore; WRENCH=hot bundle exec puma -p 3000;'
@@ -165,5 +164,8 @@ defaults write -g ApplePersistence -bool no
 #rehash
 hash -r
 
-#keychain
+#keychain for github
 git config --global credential.helper osxkeychain
+
+#kubectl version
+# export K8S_VERSION=$(curl -sS https://storage.googleapis.com/kubernetes-release/release/stable.txt)
