@@ -87,32 +87,30 @@ DISABLE_UPDATE_PROMPT=true
 
 alias u='ubrew; \
       ibrew; \
+      iffmpeg; \
       udocker; \
       rnode; \
       inode;'
 
 alias ubrew='brew update; brew doctor; brew upgrade;'
-
-alias ibrew='brew install youtube-dl ffmpeg --with-fdk-aac --with-ffplay --with-freetype --with-libass --with-libquvi --with-libvorbis --with-libvpx --with-opus --with-x265 watchman nvm flow vault go rbenv elixir multirust mysql postgresql rethinkdb redis awscli docker docker-machine kubernetes-cli git otto terraform packer nomad'
-
+alias ucask='brew cask install `brew cask list`'
+alias killvb="kill $(ps -e | grep VirtualBox | awk '{ print $1 }')"
+alias iffmpeg='brew install ffmpeg --with-fdk-aac --with-faac --with-ffplay --with-freetype --with-libass --with-libquvi --with-libvorbis --with-libvpx --with-opus --with-x265'
+alias ibrew='brew install youtube-dl watchman nvm flow vault go rbenv elixir multirust mysql postgresql rethinkdb redis awscli docker docker-machine kubernetes-cli git otto terraform packer nomad'
 alias udocker='docker-machine upgrade dev;'
-
 alias rnode='nvm use 4; nvm uninstall node; nvm install node; nvm uninstall 4; nvm install 4; nvm use node;'
-
-alias inode='npm i -g react-native-cli npm-check-updates;'
-
+alias inode='npm i -g react-native-cli db-migrate pm2 rnpm code-push-cli npm-check;'
 alias k='killall Dock; killall -9 node; killall -9 ruby'
-
+alias ios='react-native run-ios'
+alias ncu='npm-check'
+alias android='react-native run-android'
 alias p='~/workspace/procore; gp; gem install bundler; bundle install; gsu; ~/workspace/wrench; gp;'
 alias w='~/workspace/wrench; npm run dev;'
 alias wie='~/workspace/wrench; npm run vm;'
-alias prohot='~/workspace/procore; WRENCH=hot bundle exec puma -p 3000;'
-alias proh='~/workspace/procore; WRENCH=hot bundle exec puma -p 3000;'
-alias prolocal='~/workspace/procore; WRENCH=local bundle exec puma -p 3000;'
-alias prol='~/workspace/procore; WRENCH=local bundle exec puma -p 3000;'
-alias prod='~/workspace/procore; bundle exec puma -p 3000;'
-alias prodefault='~/workspace/procore; bundle exec puma -p 3000;'
-alias proie='~/workspace/procore; WRENCH=ievm bundle exec puma -p 3000;'
+alias proh='~/workspace/procore; WRENCH=hot bin/rails s -b 0.0.0.0;'
+alias prol='~/workspace/procore; WRENCH=local bin/rails s -b 0.0.0.0;'
+alias prod='~/workspace/procore; bin/rails s -b 0.0.0.0;'
+alias proie='~/workspace/procore; WRENCH=ievm bin/rails s -b 0.0.0.0;'
 alias o='ssh db1.office.procore;'
 alias a='atom .;'
 alias e='exit;'
