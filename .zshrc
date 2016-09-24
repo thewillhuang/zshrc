@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/willh/.oh-my-zsh
+export ZSH=/Users/will/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -149,6 +149,7 @@ eval "$(docker-machine env dev)"
 #ruby
 export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export RBENV_VERSION=2.3.1
 
 #lunchy
 LUNCHY_DIR=$(dirname `gem which lunchy`)/../extras
