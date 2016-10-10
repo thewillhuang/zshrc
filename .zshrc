@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/will/.oh-my-zsh
+export ZSH=/Users/willh/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -96,13 +96,13 @@ alias ubrew='brew update; brew doctor; brew upgrade;'
 alias ucask='brew cask install `brew cask list`'
 alias killvb="kill $(ps -e | grep VirtualBox | awk '{ print $1 }')"
 alias iffmpeg='brew install ffmpeg --with-fdk-aac --with-faac --with-ffplay --with-freetype --with-libass --with-libquvi --with-libvorbis --with-libvpx --with-opus --with-x265'
-alias ibrew='brew install youtube-dl watchman nvm flow vault go rbenv elixir multirust mysql postgresql rethinkdb redis awscli docker docker-machine kubernetes-cli git otto terraform packer nomad'
+alias ibrew='brew install youtube-dl watchman nvm flow vault go rbenv pyenv elixir mysql postgresql rethinkdb redis awscli docker docker-machine kubernetes-cli git otto terraform packer nomad'
 alias udocker='docker-machine upgrade dev;'
 alias rnode='nvm use 4; nvm uninstall node; nvm install node; nvm uninstall 4; nvm install 4; nvm use node;'
 alias inode='npm i -g react-native-cli db-migrate pm2 rnpm code-push-cli npm-check;'
 alias k='killall Dock; killall -9 node; killall -9 ruby'
 alias ios='react-native run-ios'
-alias ncu='npm-check'
+alias ncu='npm-check --no-emoji'
 alias android='react-native run-android'
 alias p='~/workspace/procore; gp; gem install bundler; bundle install; gsu; ~/workspace/wrench; gp;'
 alias w='~/workspace/wrench; npm run dev;'
@@ -149,7 +149,12 @@ eval "$(docker-machine env dev)"
 #ruby
 export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-export RBENV_VERSION=2.3.1
+export RBENV_VERSION="2.3.1"
+
+#python
+export PYENV_ROOT=/usr/local/var/pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+export PYENV_VERSION="3.5.2"
 
 #lunchy
 LUNCHY_DIR=$(dirname `gem which lunchy`)/../extras
@@ -165,6 +170,3 @@ hash -r
 
 #keychain for github
 git config --global credential.helper osxkeychain
-
-#kubectl version
-# export K8S_VERSION=$(curl -sS https://storage.googleapis.com/kubernetes-release/release/stable.txt)
