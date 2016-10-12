@@ -90,6 +90,7 @@ alias u='ubrew; \
       iffmpeg; \
       udocker; \
       rnode; \
+      curl -o- -L https://yarnpkg.com/install.sh | bash; \
       inode;'
 
 alias ubrew='brew update; brew doctor; brew upgrade;'
@@ -99,7 +100,7 @@ alias iffmpeg='brew install ffmpeg --with-fdk-aac --with-faac --with-ffplay --wi
 alias ibrew='brew install youtube-dl watchman nvm flow vault go rbenv pyenv elixir mysql postgresql rethinkdb redis awscli docker docker-machine kubernetes-cli git otto terraform packer nomad'
 alias udocker='docker-machine upgrade dev;'
 alias rnode='nvm use 4; nvm uninstall node; nvm install node; nvm uninstall 4; nvm install 4; nvm use node;'
-alias inode='npm i -g react-native-cli db-migrate pm2 rnpm code-push-cli npm-check;'
+alias inode='yarn yarn global add react-native-cli db-migrate pm2 rnpm code-push-cli npm-check;'
 alias k='killall Dock; killall -9 node; killall -9 ruby'
 alias ios='react-native run-ios'
 alias ncu='npm-check --no-emoji'
