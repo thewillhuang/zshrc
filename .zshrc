@@ -90,10 +90,8 @@ alias u='ubrew; \
       iffmpeg; \
       udocker; \
       rnode; \
-      iyarn; \
       inode;'
 
-alias iyarn='rm -rf ~/.yarn; curl -o- -L https://yarnpkg.com/install.sh | bash;'
 alias ubrew='brew update; brew doctor; brew upgrade;'
 alias ucask='brew cask install `brew cask list`'
 alias killvb="kill $(ps -e | grep VirtualBox | awk '{ print $1 }')"
