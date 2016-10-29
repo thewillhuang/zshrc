@@ -90,7 +90,8 @@ alias u='ubrew; \
       iffmpeg; \
       udocker; \
       rnode; \
-      inode;'
+      inode; \
+      iyarn;'
 
 alias ubrew='brew update; brew doctor; brew upgrade;'
 alias ucask='brew cask install `brew cask list`'
@@ -99,7 +100,8 @@ alias iffmpeg='brew install ffmpeg --with-fdk-aac --with-faac --with-ffplay --wi
 alias ibrew='brew install youtube-dl watchman nvm flow vault go rbenv pyenv elixir mysql postgresql rethinkdb redis awscli docker docker-machine kubernetes-cli git otto terraform packer nomad'
 alias udocker='docker-machine upgrade dev;'
 alias rnode='nvm use 4; nvm uninstall node; nvm install node; nvm uninstall 4; nvm install 4; nvm use node;'
-alias inode='npm i -g react-native-cli db-migrate pm2 code-push-cli npm-check yarn;'
+alias inode='npm i -g yarn;'
+alias iyarn='yarn add -g react-native-cli db-migrate pm2 code-push-cli npm-check'
 alias k='killall Dock; killall -9 node; killall -9 ruby'
 alias ios='react-native run-ios'
 alias ncu='npm-check --no-emoji'
@@ -139,6 +141,9 @@ alias dl="youtube-dl -o '%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 nvm use node
+
+#yarn
+export PATH="$PATH:$HOME/.yarn/bin"
 
 #awscli
 source /usr/local/share/zsh/site-functions/_aws
