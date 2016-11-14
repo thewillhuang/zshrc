@@ -91,17 +91,18 @@ alias u='ubrew; \
       udocker; \
       rnode; \
       inode; \
-      iyarn;'
+      apex upgrade; \'
+
 
 alias ubrew='brew update; brew doctor; brew upgrade;'
+alias iapex='curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sh;'
 alias ucask='brew cask install `brew cask list`'
 alias killvb="kill $(ps -e | grep VirtualBox | awk '{ print $1 }')"
 alias iffmpeg='brew install ffmpeg --with-fdk-aac --with-faac --with-ffplay --with-freetype --with-libass --with-libquvi --with-libvorbis --with-libvpx --with-opus --with-x265'
-alias ibrew='brew install youtube-dl watchman nvm flow go rbenv pyenv elixir mysql postgresql rethinkdb redis awscli docker docker-machine kubernetes-cli git'
+alias ibrew='brew install youtube-dl watchman nvm go rbenv pyenv elixir mysql postgresql rethinkdb redis awscli docker docker-machine kubernetes-cli git'
 alias udocker='docker-machine upgrade dev;'
-alias rnode='nvm use 4; nvm uninstall node; nvm install node; nvm uninstall 4; nvm install 4; nvm use node;'
-alias inode='npm i -g yarn;'
-alias iyarn='yarn global add react-native-cli db-migrate pm2 code-push-cli npm-check'
+alias rnode='nvm use 6; nvm uninstall node; nvm install node; nvm uninstall 6; nvm install 6; nvm use node;'
+alias inode='npm i -g yarn flow-bin react-native-cli db-migrate pm2 code-push-cli npm-check;'
 alias k='killall Dock; killall -9 node; killall -9 ruby'
 alias ios='react-native run-ios'
 alias ncu='npm-check --no-emoji'
@@ -136,6 +137,8 @@ alias gd='git diff'
 alias gl='git log;'
 alias vdl='youtube-dl -R infinite'
 alias dl="youtube-dl -o '%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' -x -i --audio-format 'mp3' --audio-quality 0"
+alias tf="source ~/tensorflow/bin/activate"
+alias d="deactivate"
 
 #nvm
 export NVM_DIR=~/.nvm
@@ -143,7 +146,7 @@ source $(brew --prefix nvm)/nvm.sh
 nvm use node
 
 #yarn
-export PATH="$PATH:$HOME/.yarn/bin"
+# export PATH="$PATH:$HOME/.yarn/bin"
 
 #awscli
 source /usr/local/share/zsh/site-functions/_aws
@@ -167,6 +170,17 @@ LUNCHY_DIR=$(dirname `gem which lunchy`)/../extras
 if [ -f $LUNCHY_DIR/lunchy-completion.zsh ]; then
   . $LUNCHY_DIR/lunchy-completion.zsh
 fi
+
+#apex
+_apex()  {
+  COMPREPLY=()
+  local cur="${COMP_WORDS[COMP_CWORD]}"
+  local opts="$(apex autocomplete -- ${COMP_WORDS[@]:1})"
+  COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+  return 0
+}
+
+complete -F _apex apex
 
 #prevent app from reload
 defaults write -g ApplePersistence -bool no
