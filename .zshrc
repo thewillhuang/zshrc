@@ -114,7 +114,8 @@ alias proh='~/workspace/procore; WRENCH=hot bin/rails s -b 0.0.0.0;'
 alias prol='~/workspace/procore; WRENCH=local bin/rails s -b 0.0.0.0;'
 alias prod='~/workspace/procore; bin/rails s -b 0.0.0.0;'
 alias proie='~/workspace/procore; WRENCH=ievm bin/rails s -b 0.0.0.0;'
-alias o='ssh db1.office.procore;'
+alias r='cat ~/.remote.yml > ~/workspace/procore/config/database.yml; ssh db1.office.procore;'
+alias o='cat ~/.office.yml > ~/workspace/procore/config/database.yml;'
 alias a='atom .;'
 alias e='exit;'
 alias gp='git pull;'
@@ -139,6 +140,7 @@ alias vdl='youtube-dl -R infinite'
 alias dl="youtube-dl -o '%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' -x -i --audio-format 'mp3' --audio-quality 0"
 alias tf="source ~/tensorflow/bin/activate"
 alias d="deactivate"
+alias ds="docker-machine start dev; eval '$(docker-machine env dev)'"
 
 #nvm
 export NVM_DIR=~/.nvm
@@ -151,9 +153,9 @@ nvm use node
 #awscli
 source /usr/local/share/zsh/site-functions/_aws
 
-# docker
-docker-machine start dev
-eval "$(docker-machine env dev)"
+# # docker
+# docker-machine start dev
+# eval "$(docker-machine env dev)"
 
 #ruby
 export RBENV_ROOT=/usr/local/var/rbenv
