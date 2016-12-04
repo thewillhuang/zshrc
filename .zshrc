@@ -94,8 +94,8 @@ alias u='ubrew; \
       inode; \
       apex upgrade; \'
 
-alias uyarn='yarn self-update';
-alias iyarn='curl -o- -L https://yarnpkg.com/install.sh | bash';
+alias uyarn='yarn self-update'
+alias iyarn='curl -o- -L https://yarnpkg.com/install.sh | bash'
 alias ubrew='brew update; brew doctor; brew upgrade;'
 alias iapex='curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sh;'
 alias ucask='brew cask install `brew cask list`'
@@ -104,12 +104,12 @@ alias iffmpeg='brew install ffmpeg --with-fdk-aac --with-faac --with-ffplay --wi
 alias ibrew='brew install youtube-dl watchman nvm go rbenv pyenv elixir mysql postgresql rethinkdb redis awscli docker docker-machine kubernetes-cli git'
 alias udocker='docker-machine upgrade dev;'
 alias rnode='nvm use 6; nvm uninstall node; nvm install node; nvm uninstall 6; nvm install 6; nvm use node;'
-alias inode='npm i -g flow-bin react-native-cli db-migrate pm2 code-push-cli npm-check;'
+alias inode='npm i -g hexo-cli flow-bin react-native-cli db-migrate pm2 code-push-cli npm-check;'
 alias k='killall Dock; killall -9 node; killall -9 ruby'
 alias ios='react-native run-ios'
 alias ncu='npm-check --no-emoji'
 alias android='react-native run-android'
-alias p='~/workspace/procore; gp; gem install bundler; bundle install; gsu; ~/workspace/wrench; gp;'
+alias p='~/workspace/procore; gp; gem install bundler; bundle install; gsu; bundle exec rake db:migrate; ~/workspace/wrench; gp;'
 alias w='~/workspace/wrench; npm run dev;'
 alias wie='~/workspace/wrench; npm run vm;'
 alias proh='~/workspace/procore; WRENCH=hot bin/rails s -b 0.0.0.0;'
@@ -117,7 +117,7 @@ alias prol='~/workspace/procore; WRENCH=local bin/rails s -b 0.0.0.0;'
 alias prod='~/workspace/procore; bin/rails s -b 0.0.0.0;'
 alias proie='~/workspace/procore; WRENCH=ievm bin/rails s -b 0.0.0.0;'
 alias r='cat ~/.remote.yml > ~/workspace/procore/config/database.yml; ssh db1.office.procore;'
-alias o='cat ~/.office.yml > ~/workspace/procore/config/database.yml;'
+alias o='cat ~/.office.yml > ~/workspace/procore/config/database.yml; proh'
 alias a='atom .;'
 alias e='exit;'
 alias gp='git pull;'
@@ -142,7 +142,11 @@ alias vdl='youtube-dl -R infinite'
 alias dl="youtube-dl -o '%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' -x -i --audio-format 'mp3' --audio-quality 0"
 alias tf="source ~/tensorflow/bin/activate"
 alias d="deactivate"
-alias ds="docker-machine start dev; eval '$(docker-machine env dev)'"
+alias ds="docker-machine start dev; de"
+alias de="eval $(docker-machine env dev)"
+alias gaa='git add -A'
+alias gcm='gaa; git commit -m'
+alias ph='git push'
 
 #nvm
 export NVM_DIR=~/.nvm
@@ -184,7 +188,7 @@ _apex()  {
   return 0
 }
 
-complete -F _apex apex
+# complete -F _apex apex
 
 #prevent app from reload
 defaults write -g ApplePersistence -bool no
