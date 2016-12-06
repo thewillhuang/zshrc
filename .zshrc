@@ -159,9 +159,9 @@ export PATH="$HOME/.yarn/bin:$PATH"
 #awscli
 source /usr/local/share/zsh/site-functions/_aws
 
-# # docker
-# docker-machine start dev
-# eval "$(docker-machine env dev)"
+# docker
+docker-machine start dev
+eval "$(docker-machine env dev)"
 
 #ruby
 export RBENV_ROOT=/usr/local/var/rbenv
@@ -187,8 +187,7 @@ _apex()  {
   COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
   return 0
 }
-
-# complete -F _apex apex
+complete -F _apex apex
 
 #prevent app from reload
 defaults write -g ApplePersistence -bool no
