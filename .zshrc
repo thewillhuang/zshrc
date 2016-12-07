@@ -148,6 +148,12 @@ alias gaa='git add -A'
 alias gcm='gaa; git commit -m'
 alias ph='git push'
 
+revert() {
+  git reset --hard $1;
+  git reset --soft head@{1};
+  gcm "revert to $1";
+}
+
 #nvm
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
