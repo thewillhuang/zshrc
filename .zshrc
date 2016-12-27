@@ -1,10 +1,12 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/willh/.oh-my-zsh
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/williamhuang/.oh-my-zsh
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -51,12 +53,11 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+source $ZSH/oh-my-zsh.sh
+
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -72,7 +73,7 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -82,8 +83,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-DISABLE_UPDATE_PROMPT=true
 
 alias u='ubrew; \
       ibrew; \
@@ -116,8 +115,16 @@ alias proh='~/workspace/procore; WRENCH=hot bin/rails s -b 0.0.0.0;'
 alias prol='~/workspace/procore; WRENCH=local bin/rails s -b 0.0.0.0;'
 alias prod='~/workspace/procore; bin/rails s -b 0.0.0.0;'
 alias proie='~/workspace/procore; WRENCH=ievm bin/rails s -b 0.0.0.0;'
-alias r='cat ~/.remote.yml > ~/workspace/procore/config/database.yml; ssh db1.office.procore;'
-alias o='cat ~/.office.yml > ~/workspace/procore/config/database.yml; proh'
+alias r='cat ~/.remote1.yml > ~/workspace/procore/config/database.yml; ssh db1.office.procore;'
+alias r2='cat ~/.remote2.yml > ~/workspace/procore/config/database.yml; ssh db1.office.procore;'
+alias r3='cat ~/.remote3.yml > ~/workspace/procore/config/database.yml; ssh db1.office.procore;'
+alias r4='cat ~/.remote4.yml > ~/workspace/procore/config/database.yml; ssh db1.office.procore;'
+alias r5='cat ~/.remote5.yml > ~/workspace/procore/config/database.yml; ssh db1.office.procore;'
+alias o='cat ~/.office1.yml > ~/workspace/procore/config/database.yml; proh'
+alias o2='cat ~/.office2.yml > ~/workspace/procore/config/database.yml; proh'
+alias o3='cat ~/.office3.yml > ~/workspace/procore/config/database.yml; proh'
+alias o4='cat ~/.office4.yml > ~/workspace/procore/config/database.yml; proh'
+alias o5='cat ~/.office5.yml > ~/workspace/procore/config/database.yml; proh'
 alias a='atom .;'
 alias e='exit;'
 alias nr='npm run'
@@ -154,52 +161,31 @@ revert() {
   gcm "revert to $1";
 }
 
-#nvm
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
-nvm use node
+#docker
+de
 
 #yarn
 export PATH="$HOME/.yarn/bin:$PATH"
 
-#awscli
-source /usr/local/share/zsh/site-functions/_aws
+# nvm
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
 
-# docker
-docker-machine start dev
-eval "$(docker-machine env dev)"
-
-#ruby
-export RBENV_ROOT=/usr/local/var/rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-export RBENV_VERSION="2.3.1"
+#go
+export GOPATH=$HOME/work
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 #python
 export PYENV_ROOT=/usr/local/var/pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-export PYENV_VERSION="3.5.2"
+pyenv global 2.7.13
 
-#lunchy
-LUNCHY_DIR=$(dirname `gem which lunchy`)/../extras
-if [ -f $LUNCHY_DIR/lunchy-completion.zsh ]; then
-  . $LUNCHY_DIR/lunchy-completion.zsh
-fi
+#ruby
+export RBENV_ROOT=/usr/local/var/rbenv
+eval "$(rbenv init -)"
+export RBENV_VERSION="2.3.1"
+rbenv global 2.3.1
 
-#apex
-_apex()  {
-  COMPREPLY=()
-  local cur="${COMP_WORDS[COMP_CWORD]}"
-  local opts="$(apex autocomplete -- ${COMP_WORDS[@]:1})"
-  COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
-  return 0
-}
-complete -F _apex apex
-
-#prevent app from reload
-defaults write -g ApplePersistence -bool no
-
-#rehash
-hash -r
-
-#keychain for github
-git config --global credential.helper osxkeychain
+#ssh
+ssh-add -K
