@@ -88,13 +88,12 @@ alias u='ubrew; \
       ibrew; \
       iffmpeg; \
       udocker; \
-      uyarn; \
+      iyarn; \
       rnode; \
       inode; \
       apex upgrade; \'
 
-alias uyarn='yarn self-update'
-alias iyarn='curl -o- -L https://yarnpkg.com/install.sh | bash'
+alias iyarn='rm -fr .yarn .yarn-cache; curl -o- -L https://yarnpkg.com/install.sh | bash'
 alias ubrew='brew update; brew doctor; brew upgrade;'
 alias iapex='curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sh;'
 alias ucask='brew cask install `brew cask list`'
@@ -103,7 +102,7 @@ alias iffmpeg='brew install ffmpeg --with-fdk-aac --with-faac --with-ffplay --wi
 alias ibrew='brew install youtube-dl watchman nvm go rbenv pyenv elixir mysql postgresql rethinkdb redis awscli docker docker-machine kubernetes-cli git'
 alias udocker='docker-machine upgrade dev;'
 alias rnode='nvm use 6; nvm uninstall node; nvm install node; nvm uninstall 6; nvm install 6; nvm use node;'
-alias inode='npm i -g hexo-cli flow-bin react-native-cli db-migrate pm2 code-push-cli npm-check;'
+alias inode='npm i -g hexo-cli flow-bin react-native-cli db-migrate serverless pm2 code-push-cli npm-check typescript tslint;'
 alias k='killall Dock; killall -9 node; killall -9 ruby'
 alias ios='react-native run-ios'
 alias ncu='npm-check --no-emoji'
