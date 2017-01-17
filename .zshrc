@@ -91,7 +91,7 @@ alias u='ubrew; \
       iyarn; \
       rnode; \
       inode; \
-      apex upgrade; \'
+      apex upgrade;'
 
 alias iyarn='rm -fr .yarn .yarn-cache; curl -o- -L https://yarnpkg.com/install.sh | bash'
 alias ubrew='brew update; brew doctor; brew upgrade;'
@@ -99,10 +99,10 @@ alias iapex='curl https://raw.githubusercontent.com/apex/apex/master/install.sh 
 alias ucask='brew cask install `brew cask list`'
 alias killvb="kill $(ps -e | grep VirtualBox | awk '{ print $1 }')"
 alias iffmpeg='brew install ffmpeg --with-fdk-aac --with-faac --with-ffplay --with-freetype --with-libass --with-libquvi --with-libvorbis --with-libvpx --with-opus --with-x265'
-alias ibrew='brew install youtube-dl watchman nvm go rbenv pyenv elixir mysql postgresql rethinkdb redis awscli docker docker-machine kubernetes-cli git'
+alias ibrew='brew install youtube-dl libav watchman nvm go rbenv pyenv elixir mysql postgresql rethinkdb redis awscli docker docker-machine kubernetes-cli git'
 alias udocker='docker-machine upgrade dev;'
 alias rnode='nvm use 6; nvm uninstall node; nvm install node; nvm uninstall 6; nvm install 6; nvm use node;'
-alias inode='npm i -g hexo-cli flow-bin react-native-cli db-migrate serverless pm2 code-push-cli npm-check typescript tslint;'
+alias inode='npm i -g hexo-cli flow-bin react-native-cli db-migrate serverless pm2 code-push-cli npm-check typescript tslint serverless;'
 alias k='killall Dock; killall -9 node; killall -9 ruby'
 alias ios='react-native run-ios'
 alias ncu='npm-check --no-emoji'
@@ -125,6 +125,7 @@ alias o3='cat ~/.office3.yml > ~/workspace/procore/config/database.yml; proh'
 alias o4='cat ~/.office4.yml > ~/workspace/procore/config/database.yml; proh'
 alias o5='cat ~/.office5.yml > ~/workspace/procore/config/database.yml; proh'
 alias a='atom .;'
+alias c='code .;'
 alias e='exit;'
 alias nr='npm run'
 alias n='npm'
@@ -182,8 +183,8 @@ pyenv global 2.7.13
 
 #ruby
 export RBENV_ROOT=/usr/local/var/rbenv
-eval "$(rbenv init -)"
 export RBENV_VERSION="2.3.1"
+eval "$(rbenv init -)"
 rbenv global 2.3.1
 
 #ssh
