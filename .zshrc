@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/williamhuang/.oh-my-zsh
+export ZSH=/Users/willhuang/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -99,7 +99,7 @@ alias iapex='curl https://raw.githubusercontent.com/apex/apex/master/install.sh 
 alias ucask='brew cask install `brew cask list`'
 alias killvb="kill $(ps -e | grep VirtualBox | awk '{ print $1 }')"
 alias iffmpeg='brew install ffmpeg --with-fdk-aac --with-faac --with-ffplay --with-freetype --with-libass --with-libquvi --with-libvorbis --with-libvpx --with-opus --with-x265'
-alias ibrew='brew install youtube-dl libav watchman nvm go rbenv pyenv elixir mysql postgresql rethinkdb redis awscli docker docker-machine kubernetes-cli git'
+alias ibrew='brew install icu4c openssl youtube-dl libav watchman nvm go rbenv pyenv elixir mysql postgresql rethinkdb redis awscli docker docker-machine kubernetes-cli git'
 alias udocker='docker-machine upgrade dev;'
 alias rnode='nvm use 6; nvm uninstall node; nvm install node; nvm uninstall 6; nvm install 6; nvm use node;'
 alias inode='npm i -g hexo-cli flow-bin react-native-cli db-migrate serverless pm2 code-push-cli npm-check typescript tslint serverless lerna@^2.0.0-beta;'
@@ -154,6 +154,7 @@ alias gl='git log;'
 alias gaa='git add -A'
 alias gcm='gaa; git commit -m'
 alias ph='git push'
+alias firstime='brew services start memcached; brew services start redis; git config --global user.name "William Huang"; git config --global user.email will.h86@gmail.com; cd /usr/local/include; ln -s ../opt/openssl/include/openssl .; cd ~; brew cask install slack virtualbox transmission discord chrome java atom; pyenv install 2.7.13; rbenv install 2.3.1; nvm install 6;'
 
 revert() {
   git reset --hard $1;
