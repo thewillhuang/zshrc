@@ -154,7 +154,7 @@ alias gl='git log;'
 alias gaa='git add -A'
 alias gcm='gaa; git commit -m'
 alias ph='git push'
-alias firstime='ibrew; iffmpeg; brew services start memcached; brew services start redis; git config --global user.name "William Huang"; git config --global user.email will.h86@gmail.com; cd /usr/local/include; ln -s ../opt/openssl/include/openssl .; cd ~; brew cask install slack virtualbox transmission discord chrome java atom; pyenv install 2.7.13; rbenv install 2.3.1; nvm install 6; docker-machine create --driver=virtualbox dev; u;'
+alias firstime='ibrew; iffmpeg; brew services start memcached; brew services start redis; git config --global user.name "William Huang"; git config --global user.email will.h86@gmail.com; cd /usr/local/include; ln -s ../opt/openssl/include/openssl .; cd ~; brew cask install slack virtualbox transmission discord chrome java atom; pyenv install 2.7.13; rbenv install 2.3.1; nvm install 6; docker-machine create --driver=virtualbox dev; u; defaults write com.apple.finder AppleShowAllFiles YES; sudo chown root ~/Library/Preferences/ByHost/com.apple.loginwindow*; sudo chmod 000 ~/Library/Preferences/ByHost/com.apple.loginwindow*;'
 
 revert() {
   git reset --hard $1;
