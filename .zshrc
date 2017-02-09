@@ -154,7 +154,7 @@ alias gl='git log;'
 alias gaa='git add -A'
 alias gcm='gaa; git commit -m'
 alias ph='git push'
-alias firstime='brew services start memcached; brew services start redis; git config --global user.name "William Huang"; git config --global user.email will.h86@gmail.com; cd /usr/local/include; ln -s ../opt/openssl/include/openssl .; cd ~; brew cask install slack virtualbox transmission discord chrome java atom; pyenv install 2.7.13; rbenv install 2.3.1; nvm install 6;'
+alias firstime='brew services start memcached; brew services start redis; git config --global user.name "William Huang"; git config --global user.email will.h86@gmail.com; cd /usr/local/include; ln -s ../opt/openssl/include/openssl .; cd ~; brew cask install slack virtualbox transmission discord chrome java atom; pyenv install 2.7.13; rbenv install 2.3.1; nvm install 6; docker-machine create --driver=virtualbox dev'
 
 revert() {
   git reset --hard $1;
@@ -187,3 +187,6 @@ export RBENV_ROOT=/usr/local/var/rbenv
 export RBENV_VERSION="2.3.1"
 eval "$(rbenv init -)"
 rbenv global 2.3.1
+
+#ssh
+# ssh-add -K
