@@ -187,6 +187,3 @@ export RBENV_ROOT=/usr/local/var/rbenv
 export RBENV_VERSION="2.3.1"
 eval "$(rbenv init -)"
 rbenv global 2.3.1
-
-#ssh
-ssh-add -K
