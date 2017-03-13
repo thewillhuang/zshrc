@@ -154,7 +154,7 @@ alias gl='git log;'
 alias gaa='git add -A'
 alias gcm='gaa; git commit -m'
 alias ph='git push'
-alias iapm='apm install emmet file-icons language-babel linter linter-eslint linter-tidy minimap minimap-git-diff highlight-selected autocomplete-paths'
+alias iapm='apm install emmet file-icons language-babel linter linter-eslint linter-tidy minimap minimap-git-diff highlight-selected autocomplete-paths pigments'
 alias firstime='/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"; ibrew; iffmpeg; brew services start memcached; brew services start redis; brew services start postgresql; git config --global user.name "William Huang"; git config --global user.email will.h86@gmail.com; cd /usr/local/include; ln -s ../opt/openssl/include/openssl .; cd ~; brew cask install slack virtualbox transmission discord google-chrome java atom vlc; pyenv install 2.7.13; rbenv install 2.3.1; nvm install 6; docker-machine create --driver=virtualbox dev; iapex; u; defaults write com.apple.finder AppleShowAllFiles YES; sudo chown root ~/Library/Preferences/ByHost/com.apple.loginwindow*; sudo chmod 000 ~/Library/Preferences/ByHost/com.apple.loginwindow*;'
 
 revert() {
