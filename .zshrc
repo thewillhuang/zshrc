@@ -89,8 +89,6 @@ alias u='ubrew; \
       iffmpeg; \
       udocker; \
       iyarn; \
-      rnode; \
-      inode; \
       apex upgrade;'
 
 alias iyarn='rm -fr .yarn .yarn-cache; curl -o- -L https://yarnpkg.com/install.sh | bash'
@@ -156,16 +154,16 @@ alias gcm='gaa; git commit -m'
 alias ph='git push'
 alias iapm='apm install emmet file-icons language-babel linter linter-eslint linter-tidy minimap minimap-git-diff highlight-selected autocomplete-paths pigments'
 alias firstime='/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"; ibrew; iffmpeg; brew services start memcached; brew services start redis; brew services start postgresql; git config --global user.name "William Huang"; git config --global user.email will.h86@gmail.com; cd /usr/local/include; ln -s ../opt/openssl/include/openssl .; cd ~; brew cask install slack virtualbox transmission discord google-chrome java atom vlc mysqlworkbench; pyenv install 2.7.13; rbenv install 2.3.1; nvm install 6; docker-machine create --driver=virtualbox dev; iapex; u; defaults write com.apple.finder AppleShowAllFiles YES; sudo chown root ~/Library/Preferences/ByHost/com.apple.loginwindow*; sudo chmod 000 ~/Library/Preferences/ByHost/com.apple.loginwindow*;'
-alias s='tab proh; tab w; tab cd ~/workspace/wrench; tab cd ~/workspace/procore;'
-alias rs2='de; tab r2; s;';
-alias rs3='de; tab r3; s;';
-alias rs4='de; tab r4; s;';
-alias rs='de; tab r; s';
-alias os='de; tab o; s;';
-alias os2='de; tab o2; s;';
-alias os3='de; tab o3; s;';
-alias os4='de; tab o4; s;';
-alias up='u; tab p;'
+alias s='tab w; tab proh; tab cd ~/workspace/wrench; tab cd ~/workspace/procore;'
+alias rs='tab de; tab r; s';
+alias rs2='tab de; tab r2; s;';
+alias rs3='tab de; tab r3; s;';
+alias rs4='tab de; tab r4; s;';
+alias os='tab de; tab o; s;';
+alias os2='tab de; tab o2; s;';
+alias os3='tab de; tab o3; s;';
+alias os4='tab de; tab o4; s;';
+alias up='tab u; tab p; tab rnode inode; tab de;'
 
 revert() {
   git reset --hard $1;
