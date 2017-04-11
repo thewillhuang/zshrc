@@ -172,7 +172,7 @@ revert() {
 }
 
 #docker
-de
+# de
 
 #yarn
 export PATH="$HOME/.yarn/bin:$PATH"
