@@ -97,7 +97,7 @@ alias iapex='curl https://raw.githubusercontent.com/apex/apex/master/install.sh 
 alias ucask='brew cask install `brew cask list`'
 alias killvb="kill $(ps -e | grep VirtualBox | awk '{ print $1 }')"
 alias iffmpeg='brew install ffmpeg --with-fdk-aac --with-faac --with-ffplay --with-freetype --with-libass --with-libquvi --with-libvorbis --with-libvpx --with-opus --with-x265'
-alias ibrew='brew install icu4c openssl youtube-dl libav watchman nvm go rbenv pyenv elixir mysql postgresql redis awscli docker docker-machine kubernetes-cli git'
+alias ibrew='brew install icu4c openssl youtube-dl libav watchman go nvm rbenv pyenv elixir mysql postgresql redis memcached awscli docker docker-machine kubernetes-cli git'
 alias udocker='docker-machine upgrade dev;'
 alias rnode='nvm use 6; nvm uninstall node; nvm install node; nvm uninstall 6; nvm install 6; nvm use node;'
 alias inode='npm i -g flow-bin react-native-cli db-migrate serverless pm2 code-push-cli npm-check typescript tslint serverless lerna@^2.0.0-beta;'
@@ -124,7 +124,6 @@ alias o4='cat ~/.office4.yml > ~/workspace/procore/config/database.yml; proh'
 alias o5='cat ~/.office5.yml > ~/workspace/procore/config/database.yml; proh'
 alias a='atom .;'
 alias c='code .;'
-alias e='exit;'
 alias nr='npm run'
 alias n='npm'
 alias nt='n test'
@@ -152,17 +151,18 @@ alias gl='git log;'
 alias gaa='git add -A'
 alias gcm='gaa; git commit -m'
 alias ph='git push'
-alias iapm='apm install emmet file-icons language-babel linter linter-eslint linter-tidy minimap minimap-git-diff highlight-selected autocomplete-paths pigments'
-alias firstime='/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"; ibrew; iffmpeg; brew services start memcached; brew services start redis; brew services start postgresql; git config --global user.name "William Huang"; git config --global user.email will.h86@gmail.com; cd /usr/local/include; ln -s ../opt/openssl/include/openssl .; cd ~; brew cask install slack virtualbox transmission discord google-chrome java atom vlc mysqlworkbench; pyenv install 2.7.13; rbenv install 2.3.1; nvm install 6; docker-machine create --driver=virtualbox dev; iapex; u; defaults write com.apple.finder AppleShowAllFiles YES; sudo chown root ~/Library/Preferences/ByHost/com.apple.loginwindow*; sudo chmod 000 ~/Library/Preferences/ByHost/com.apple.loginwindow*;'
+alias izsh='/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
+alias iapm='apm install emmet minimap-highlight-selected file-icons language-babel linter linter-eslint linter-tidy minimap minimap-git-diff highlight-selected autocomplete-paths pigments'
+alias firstime='izsh; ibrew; iffmpeg; brew services start memcached; brew services start redis; brew services start postgresql; git config --global user.name "William Huang"; git config --global user.email will.h86@gmail.com; cd /usr/local/include; ln -s ../opt/openssl/include/openssl .; cd ~; brew cask install slack virtualbox transmission discord google-chrome java atom vlc mysqlworkbench; pyenv install 2.7.13; rbenv install 2.3.1; nvm install 6; nvm install node; docker-machine create --driver=virtualbox dev; iapex; u; defaults write com.apple.finder AppleShowAllFiles YES; sudo chown root ~/Library/Preferences/ByHost/com.apple.loginwindow*; sudo chmod 000 ~/Library/Preferences/ByHost/com.apple.loginwindow*;'
 alias s='tab w; tab proh; tab cd ~/workspace/wrench; tab cd ~/workspace/procore;'
-alias rs='de tab r; s';
-alias rs2='de tab r2; s;';
-alias rs3='de tab r3; s;';
-alias rs4='de tab r4; s;';
-alias os='de tab o; s;';
-alias os2='de tab o2; s;';
-alias os3='de tab o3; s;';
-alias os4='de tab o4; s;';
+alias rs='tab r; s';
+alias rs2='tab r2; s;';
+alias rs3='tab r3; s;';
+alias rs4='tab r4; s;';
+alias os='tab o; s;';
+alias os2='tab o2; s;';
+alias os3='tab o3; s;';
+alias os4='tab o4; s;';
 alias up='tab u; tab p; tab rnode inode; de;'
 
 revert() {
@@ -197,5 +197,5 @@ export RBENV_VERSION="2.3.1"
 eval "$(rbenv init -)"
 rbenv global 2.3.1
 
-#ssh
-# ssh-add -K
+#default workspace folder
+cd ~/workspace;
