@@ -88,7 +88,6 @@ alias u='ubrew; \
       ibrew; \
       iffmpeg; \
       udocker; \
-      iyarn; \
       apex upgrade;'
 
 alias iyarn='rm -fr .yarn .yarn-cache; curl -o- -L https://yarnpkg.com/install.sh | bash'
@@ -100,7 +99,7 @@ alias iffmpeg='brew install ffmpeg --with-fdk-aac --with-faac --with-ffplay --wi
 alias ibrew='brew install icu4c openssl youtube-dl libav watchman go nvm rbenv pyenv elixir mysql postgresql redis memcached awscli docker docker-machine kubernetes-cli git'
 alias udocker='docker-machine upgrade dev;'
 alias rnode='nvm use 6; nvm uninstall node; nvm install node; nvm uninstall 6; nvm install 6; nvm use node;'
-alias inode='npm i -g flow-bin react-native-cli db-migrate serverless pm2 code-push-cli npm-check typescript tslint serverless lerna@^2.0.0-beta;'
+alias inode='iyarn; echo $(yarn global bin); yarn global add flow-bin react-native-cli db-migrate serverless pm2 code-push-cli npm-check typescript tslint serverless lerna@^2.0.0-beta speed-test --global-folder=`yarn global bin`;'
 alias k='killall Dock; killall -9 node; killall -9 ruby'
 alias ios='react-native run-ios'
 alias ncu='npm-check --no-emoji'
@@ -154,7 +153,7 @@ alias ph='git push'
 alias izsh='/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
 alias iapm='apm install emmet minimap-highlight-selected file-icons language-babel linter linter-eslint linter-tidy minimap minimap-git-diff highlight-selected autocomplete-paths pigments'
 alias firstime='izsh; ibrew; iffmpeg; brew services start memcached; brew services start redis; brew services start postgresql; git config --global user.name "William Huang"; git config --global user.email will.h86@gmail.com; cd /usr/local/include; ln -s ../opt/openssl/include/openssl .; cd ~; brew cask install slack virtualbox transmission discord google-chrome java atom vlc mysqlworkbench; pyenv install 2.7.13; rbenv install 2.3.1; nvm install 6; nvm install node; docker-machine create --driver=virtualbox dev; iapex; u; defaults write com.apple.finder AppleShowAllFiles YES; sudo chown root ~/Library/Preferences/ByHost/com.apple.loginwindow*; sudo chmod 000 ~/Library/Preferences/ByHost/com.apple.loginwindow*;'
-alias s='tab w; tab proh; tab cd ~/workspace/wrench; tab cd ~/workspace/procore;'
+alias s='tab w; tab proh; tab cd ~/workspace/wrench;'
 alias rs='tab r; s';
 alias rs2='tab r2; s;';
 alias rs3='tab r3; s;';
@@ -196,6 +195,9 @@ export RBENV_ROOT=/usr/local/var/rbenv
 export RBENV_VERSION="2.3.1"
 eval "$(rbenv init -)"
 rbenv global 2.3.1
+
+#node
+nvm use node;
 
 #default workspace folder
 cd ~/workspace;
