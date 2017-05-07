@@ -85,21 +85,19 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias u='ubrew; \
-      ibrew; \
       iffmpeg; \
-      udocker; \
       apex upgrade;'
 
-alias iyarn='rm -fr .yarn .yarn-cache; curl -o- -L https://yarnpkg.com/install.sh | bash'
+alias iyarn='rm -fr .yarn; curl -o- -L https://yarnpkg.com/install.sh | bash;'
 alias ubrew='brew update; brew doctor; brew upgrade;'
 alias iapex='curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sh;'
 alias ucask='brew cask install `brew cask list`'
 alias killvb="kill $(ps -e | grep VirtualBox | awk '{ print $1 }')"
 alias iffmpeg='brew install ffmpeg --with-fdk-aac --with-faac --with-ffplay --with-freetype --with-libass --with-libquvi --with-libvorbis --with-libvpx --with-opus --with-x265'
-alias ibrew='brew install icu4c openssl youtube-dl libav watchman go nvm rbenv pyenv elixir mysql postgresql redis memcached awscli docker docker-machine kubernetes-cli git'
+alias ibrew='brew install icu4c openssl youtube-dl libav watchman go nvm rbenv pyenv elixir mysql postgresql redis memcached awscli docker docker-machine kubernetes-cli git opam'
 alias udocker='docker-machine upgrade dev;'
 alias rnode='nvm use 6; nvm uninstall node; nvm install node; nvm uninstall 6; nvm install 6; nvm use node;'
-alias inode='iyarn; echo $(yarn global bin); yarn global add flow-bin react-native-cli db-migrate serverless pm2 code-push-cli npm-check typescript tslint serverless lerna@^2.0.0-beta speed-test --global-folder=`yarn global bin`;'
+alias inode='iyarn; echo $(yarn global bin); yarn global add flow-bin react-native-cli db-migrate code-push-cli typescript tslint serverless lerna speed-test bs-platform--global-folder=`yarn global bin`;'
 alias k='killall Dock; killall -9 node; killall -9 ruby'
 alias ios='react-native run-ios'
 alias ncu='npm-check --no-emoji'
@@ -152,8 +150,8 @@ alias gcm='gaa; git commit -m'
 alias ph='git push'
 alias izsh='/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
 alias iapm='apm install emmet minimap-highlight-selected file-icons language-babel linter linter-eslint linter-tidy minimap minimap-git-diff highlight-selected autocomplete-paths pigments'
-alias firstime='izsh; ibrew; iffmpeg; brew services start memcached; brew services start redis; brew services start postgresql; git config --global user.name "William Huang"; git config --global user.email will.h86@gmail.com; cd /usr/local/include; ln -s ../opt/openssl/include/openssl .; cd ~; brew cask install slack virtualbox transmission discord google-chrome java atom vlc mysqlworkbench; pyenv install 2.7.13; rbenv install 2.3.1; nvm install 6; nvm install node; docker-machine create --driver=virtualbox dev; iapex; u; defaults write com.apple.finder AppleShowAllFiles YES; sudo chown root ~/Library/Preferences/ByHost/com.apple.loginwindow*; sudo chmod 000 ~/Library/Preferences/ByHost/com.apple.loginwindow*;'
-alias s='tab w; tab proh; tab cd ~/workspace/wrench;'
+alias firstime='izsh; ibrew; iffmpeg; brew services start memcached; brew services start redis; brew services start postgresql; git config --global user.name "William Huang"; git config --global user.email will.h86@gmail.com; cd /usr/local/include; ln -s ../opt/openssl/include/openssl .; cd ~; brew cask install slack virtualbox transmission discord google-chrome java atom vlc mysqlworkbench; pyenv install 2.7.13; rbenv install 2.3.1; nvm install 6; nvm install node; docker-machine create --driver=virtualbox dev; iapex; u; defaults write com.apple.finder AppleShowAllFiles YES; sudo chown root ~/Library/Preferences/ByHost/com.apple.loginwindow*; sudo chmod 000 ~/Library/Preferences/ByHost/com.apple.loginwindow*; opam init; opam update; opam switch 4.03.0;'
+alias s='tab w; tab proh; tab cd ~/workspace/wrench; tab cd ~/workspace/procore;'
 alias rs='tab r; s';
 alias rs2='tab r2; s;';
 alias rs3='tab r3; s;';
@@ -162,7 +160,9 @@ alias os='tab o; s;';
 alias os2='tab o2; s;';
 alias os3='tab o3; s;';
 alias os4='tab o4; s;';
-alias up='tab u; tab p; tab rnode inode; de;'
+alias up='tab u; tab p; tab rnode inode; tab udocker; de;'
+alias st='speed-test -v';
+alias pset='git clone git@github.com:procore/wrench.git && git clone git@github.com:procore/procore.git; cd ~/workspace/procore; mkdir tmp; touch tmp/caching-dev.txt; cat ~/.wrench_env > ~/workspace/wrench/.env; cat ~/.procore_env > ~/workspace/procore/.env;';
 
 revert() {
   git reset --hard $1;
@@ -174,7 +174,8 @@ revert() {
 # de
 
 #yarn
-export PATH="$HOME/.yarn/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$PATH";
+export PATH="$PATH:'yarn global bin'";
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -197,7 +198,10 @@ eval "$(rbenv init -)"
 rbenv global 2.3.1
 
 #node
-nvm use node;
+nvm alias default node;
+
+#reasonML
+eval $(opam config env)
 
 #default workspace folder
 cd ~/workspace;
