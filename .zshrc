@@ -98,7 +98,7 @@ alias iffmpeg='brew install ffmpeg --with-fdk-aac --with-faac --with-ffplay --wi
 alias ibrew='brew install icu4c openssl youtube-dl libav watchman go nvm rbenv pyenv elixir mysql postgresql redis memcached awscli docker docker-machine kubernetes-cli git opam'
 alias udocker='docker-machine upgrade dev;'
 alias rnode='nvm use 6; nvm uninstall node; nvm install node; nvm uninstall 6; nvm install 6; nvm use node;'
-alias inode='iyarn; echo $(yarn global bin); yarn global add react-native-cli typescript tslint speed-test bs-platform --global-folder=`yarn global bin`;'
+alias inode='iyarn; echo $(yarn global bin); yarn global add react-native-cli typescript tslint speed-test bs-platform lerna --global-folder=`yarn global bin`;'
 alias k='killall Dock; killall -9 node; killall -9 ruby'
 alias ios='react-native run-ios'
 alias ncu='npm-check --no-emoji'
