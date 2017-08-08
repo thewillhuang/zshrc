@@ -95,31 +95,32 @@ alias ucask='brew cask install `brew cask list`'
 alias icask='brew cask install slack virtualbox transmission discord google-chrome java atom vlc mysqlworkbench;'
 alias killvb="kill $(ps -e | grep VirtualBox | awk '{ print $1 }')"
 alias iffmpeg='brew install ffmpeg --with-fdk-aac --with-faac --with-ffplay --with-freetype --with-libass --with-libquvi --with-libvorbis --with-libvpx --with-opus --with-x265'
-alias ibrew='brew install icu4c openssl youtube-dl libav watchman go nvm rbenv pyenv elixir mysql postgresql redis memcached awscli docker docker-machine kubernetes-cli git opam'
+alias ibrew='brew install icu4c openssl youtube-dl libav watchman go nvm rbenv pyenv elixir mono mysql postgresql redis memcached awscli docker docker-machine kubernetes-cli git opam minio/stable/mc'
 alias udocker='docker-machine upgrade dev;'
-alias rnode='nvm use 6; nvm uninstall node; nvm install node; nvm uninstall 6; nvm install 6; nvm use node;'
-alias inode='iyarn; echo $(yarn global bin); yarn global add react-native-cli typescript tslint speed-test bs-platform lerna --global-folder=`yarn global bin`;'
+alias rnode='nvm use 6; nvm uninstall node; nvm install node; nvm uninstall 6; nvm install 6; nvm use node; nvm use 6;'
+alias inode='iyarn; echo $(yarn global bin); yarn global add react-native-cli react-native-git-upgrade speed-test lerna typescript flow-bin create-react-native-app exp --global-folder=`yarn global bin` && exp path;'
 alias k='killall Dock; killall -9 node; killall -9 ruby'
 alias ios='react-native run-ios'
 alias ncu='npm-check --no-emoji'
 alias android='react-native run-android'
-alias p='~/workspace/procore; echo "pulling procore/procore"; gp; gem install bundler; bundle install; bundle exec rake db:migrate; gsu; git stash; ~/workspace/wrench; echo "pulling procore/wrench"; gp;'
-alias w='~/workspace/wrench; rm -fr node_modules; yarn; npm run dev;'
-alias wie='~/workspace/wrench; VIRTUALBOX=true VMHOST=10.0.2.2 npm run vm;'
-alias proh='~/workspace/procore; bundle install; WRENCH=hot bin/rails s -b 0.0.0.0;'
-alias prol='~/workspace/procore; bundle install; WRENCH=local bin/rails s -b 0.0.0.0;'
-alias prod='~/workspace/procore; bundle install; bin/rails s -b 0.0.0.0;'
-alias proie='~/workspace/procore; bundle install; VMHOST=10.0.2.2 WRENCH=ievm bin/rails s -b 0.0.0.0;'
-alias r='cat ~/.remote1.yml > ~/workspace/procore/config/database.yml; ssh db1.office.procore;'
-alias r2='cat ~/.remote2.yml > ~/workspace/procore/config/database.yml; ssh db1.office.procore;'
-alias r3='cat ~/.remote3.yml > ~/workspace/procore/config/database.yml; ssh db1.office.procore;'
-alias r4='cat ~/.remote4.yml > ~/workspace/procore/config/database.yml; ssh db1.office.procore;'
-alias r5='cat ~/.remote5.yml > ~/workspace/procore/config/database.yml; ssh db1.office.procore;'
-alias o='cat ~/.office1.yml > ~/workspace/procore/config/database.yml; proh'
-alias o2='cat ~/.office2.yml > ~/workspace/procore/config/database.yml; proh'
-alias o3='cat ~/.office3.yml > ~/workspace/procore/config/database.yml; proh'
-alias o4='cat ~/.office4.yml > ~/workspace/procore/config/database.yml; proh'
-alias o5='cat ~/.office5.yml > ~/workspace/procore/config/database.yml; proh'
+alias pp='~/work/procore; echo "pulling procore/procore"; gp; gem install bundler; bundle install; bundle exec rake db:migrate;'
+alias pw='~/work/wrench; echo "pulling procore/wrench"; gp; yarn;'
+alias w='~/work/wrench; c; rm -fr node_modules; yarn; npm run dev;'
+alias wie='~/work/wrench; VIRTUALBOX=true VMHOST=10.0.2.2 npm run vm;'
+alias proh='~/work/procore; c; bundle install; WRENCH=hot bin/rails s -b 0.0.0.0;'
+alias prol='~/work/procore; bundle install; WRENCH=local bin/rails s -b 0.0.0.0;'
+alias prod='~/work/procore; bundle install; bin/rails s -b 0.0.0.0;'
+alias proie='~/work/procore; bundle install; VMHOST=10.0.2.2 WRENCH=ievm bin/rails s -b 0.0.0.0;'
+alias r='cat ~/.remote1.yml > ~/work/procore/config/database.yml; ssh db1.office.procore;'
+alias r2='cat ~/.remote2.yml > ~/work/procore/config/database.yml; ssh db1.office.procore;'
+alias r3='cat ~/.remote3.yml > ~/work/procore/config/database.yml; ssh db1.office.procore;'
+alias r4='cat ~/.remote4.yml > ~/work/procore/config/database.yml; ssh db1.office.procore;'
+alias r5='cat ~/.remote5.yml > ~/work/procore/config/database.yml; ssh db1.office.procore;'
+alias o='cat ~/.office1.yml > ~/work/procore/config/database.yml;'
+alias o2='cat ~/.office2.yml > ~/work/procore/config/database.yml;'
+alias o3='cat ~/.office3.yml > ~/work/procore/config/database.yml;'
+alias o4='cat ~/.office4.yml > ~/work/procore/config/database.yml;'
+alias o5='cat ~/.office5.yml > ~/work/procore/config/database.yml;'
 alias a='atom .;'
 alias c='code .;'
 alias nr='npm run'
@@ -135,10 +136,9 @@ alias tf="source ~/tensorflow/bin/activate"
 alias d="deactivate"
 alias ds="docker-machine start dev; de"
 alias de="eval $(docker-machine env dev)"
-alias gp='git pull;'
+alias gp='git pull origin $(git rev-parse --abbrev-ref HEAD);'
 alias gprunedevelop='git branch | grep -v "develop" | xargs git branch -D'
 alias gprunemaster='git branch | grep -v "master" | xargs git branch -D'
-alias gpod='git pull origin develop;'
 alias gpom='git pull origin master;'
 alias gsu='git submodule update --init --recursive;'
 alias gc='git checkout'
@@ -147,33 +147,35 @@ alias ga='git merge --abort'
 alias gd='git diff'
 alias gl='git log;'
 alias gaa='git add -A'
-alias gcm='gaa; git commit -m'
+alias gcm='gp; gaa; git commit -m'
 alias ph='git push'
 alias izsh='/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
-alias iapm='apm install emmet minimap-highlight-selected file-icons language-babel linter linter-eslint linter-tidy minimap minimap-git-diff highlight-selected autocomplete-paths pigments linter-write-good'
+alias iapm='apm install emmet minimap-highlight-selected file-icons language-babel linter linter-eslint linter-tidy minimap minimap-git-diff highlight-selected autocomplete-paths pigments linter-write-good language-ocaml linter ocaml-indent ocaml-merlin'
 alias firstime='izsh; ibrew; iffmpeg; brew services start memcached; brew services start redis; brew services start postgresql; git config --global user.name "William Huang"; git config --global user.email will.h86@gmail.com; cd /usr/local/include; ln -s ../opt/openssl/include/openssl .; cd ~; icask; pyenv install 2.7.13; rbenv install 2.3.1; nvm install 6; nvm install node; docker-machine create --driver=virtualbox dev; iapex; u; defaults write com.apple.finder AppleShowAllFiles YES; sudo chown root ~/Library/Preferences/ByHost/com.apple.loginwindow*; sudo chmod 000 ~/Library/Preferences/ByHost/com.apple.loginwindow*; opam init; opam update; opam switch 4.03.0;'
-alias s='tab w; tab proh; tab cd ~/workspace/wrench; tab cd ~/workspace/procore;'
-alias rs='tab r; s';
+alias s='tab w; tab proh;';
+alias p='proh;';
+alias rs='tab r; s;';
 alias rs2='tab r2; s;';
 alias rs3='tab r3; s;';
 alias rs4='tab r4; s;';
+alias rp='tab r; p;';
+alias rp2='tab r2; p;';
+alias rp3='tab r3; p;';
+alias rp4='tab r4; p;';
 alias os='tab o; s;';
 alias os2='tab o2; s;';
 alias os3='tab o3; s;';
 alias os4='tab o4; s;';
-alias up='tab u; tab p; tab rnode inode; tab udocker; de;'
+alias up='tab u; tab pp; tab pw; tab rnode inode; tab udocker; de;'
 alias st='speed-test -v';
-alias procorereset='git clone git@github.com:procore/wrench.git && git clone git@github.com:procore/procore.git; cd ~/workspace/procore; mkdir tmp; touch tmp/caching-dev.txt; cat ~/.wrench_env > ~/workspace/wrench/.env; cat ~/.procore_env > ~/workspace/procore/.env;';
-alias ws='cd ~/workspace'
+alias ws='cd ~/work'
+alias procorereset='ws; rm -fr node_modules procore wrench; git clone git@github.com:procore/wrench.git && git clone git@github.com:procore/procore.git; cd ~/work/procore; mkdir tmp; touch tmp/caching-dev.txt; cat ~/.wrench_env > ~/work/wrench/.env; cat ~/.procore_env > ~/work/procore/.env;';
 
 revert() {
   git reset --hard $1;
   git reset --soft head@{1};
   gcm "revert to $1";
 }
-
-#docker
-# de
 
 #yarn
 export PATH="$HOME/.yarn/bin:$PATH";
@@ -185,8 +187,6 @@ export NVM_DIR="$HOME/.nvm"
 
 #go
 export GOPATH=$HOME/work
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 #python
 export PYENV_ROOT=/usr/local/var/pyenv
@@ -200,7 +200,7 @@ eval "$(rbenv init -)"
 rbenv global 2.3.1
 
 #node
-nvm use node;
+nvm use 6;
 
 #reasonML
 eval $(opam config env)
