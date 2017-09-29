@@ -177,6 +177,7 @@ alias ws='cd ~/work'
 alias procorereset='rbenv uninstall 2.3.1; rbenv install 2.3.1; export RBENV_ROOT=/usr/local/var/rbenv; export RBENV_VERSION="2.3.1"; eval "$(rbenv init -)"; rbenv global 2.3.1; gem install bundler; ws; rm -fr node_modules procore wrench; git clone git@github.com:procore/wrench.git && git clone git@github.com:procore/procore.git; cd ~/work/procore; mkdir tmp; touch tmp/caching-dev.txt; cat ~/.wrench_env > ~/work/wrench/.env; cat ~/.procore_env > ~/work/procore/.env;';
 alias beg='bundle exec guard;'
 alias gcom='git checkout origin/master '
+alias yl='gcom yarn.lock'
 
 resetToSha() {
   git reset --hard $1;
@@ -184,7 +185,7 @@ resetToSha() {
   git commit -m "Reset to $1"
 }
 
-revertBySha() {
+revertSha() {
   git revert $1;
 }
 
