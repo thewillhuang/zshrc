@@ -33,12 +33,16 @@ pyenv install -v 2.7.8; \
 git config --global merge.conflictstyle diff3; \'
 alias freshinstall='ibrew; procorereset;'
 alias killvb="kill $(ps -e | grep VirtualBox | awk '{ print $1 }')"
-alias rnode='nvm use 8; nvm uninstall node; nvm install node; nvm uninstall 8; nvm install 8; nvm use node; nvm alias default 8; inode;'
+alias rnode='nvm use 8; nvm uninstall node; nvm install node; nvm uninstall 8; nvm install 8; nvm use 8; nvm alias default 8; inode;'
 alias inode='npm install -g expo-cli bs-platform prettier db-migrate'
 alias kill='killall Dock; killall -9 node; killall -9 rails; killall -9 ruby'
 alias pp='~/work/procore; echo "pulling procore/procore"; gp; gem install bundler; bundle install'
 alias viewer='~/work/procore/hydra_clients/insights; yarn; yarn start'
+alias punch='~/work/procore/hydra_clients/punchList; yarn; yarn start'
+alias rpunch='~/work/procore; bundle install; DEV_MODE=punchList bin/rails s'
 alias rviewer='~/work/procore; bundle install; DEV_MODE=insights bin/rails s'
+alias nviewer='~/work/procore/hydra_clients/insights_reports; yarn; yarn start'
+alias rnviewer='~/work/procore; bundle install; DEV_MODE=insights_reports bin/rails s'
 alias health='~/work/procore/hydra_clients/project_health; yarn; yarn start'
 alias rhealth='~/work/procore; bundle install; DEV_MODE=project_health bin/rails s'
 alias home='~/work/procore/hydra_clients/insights_home && yarn; yarn start'
@@ -57,12 +61,12 @@ alias r4='cat ~/Desktop/backup/.remote4.yml > ~/work/procore/config/database.yml
 alias r5='cat ~/Desktop/backup/.remote5.yml > ~/work/procore/config/database.yml; ssh db1.office.procore;'
 alias c='code .;';
 alias v='code ~/.zshrc';
-alias vdl='cd ~/Desktop && mkdir -p vdl && cd vdl && youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4"'
+alias vdl='cd ~/Desktop && mkdir -p vdl && cd vdl && youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4" -i'
 alias sdl="cd ~/Desktop && mkdir -p sdl && cd sdl && youtube-dl -o '%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' -x -i --audio-format 'mp3' --audio-quality 0"
 alias gp='git pull origin $(git rev-parse --abbrev-ref HEAD);'
 alias gprunedevelop='git branch | grep -v "develop" | xargs git branch -D'
 alias gprunemaster='git branch | grep -v "master" | xargs git branch -D'
-alias gpom='git pull origin master;'
+alias gpom='gp; git pull origin master;'
 alias gc='git checkout'
 alias gs='git status;'
 alias gf='git fetch;'
