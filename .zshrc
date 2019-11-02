@@ -1,134 +1,124 @@
-export ZSH=/Users/$USER/.oh-my-zsh
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/william/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
-plugins=(git osx)
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-alias u='ubrew;\
-       curl -sf https://up.apex.sh/install | sh;\
-       up upgrade;\
-       upgrade_oh_my_zsh;'
+# User configuration
 
-alias iup='curl -sfL https://raw.githubusercontent.com/apex/up/master/install.sh | sh;'
-alias ubrew='brew update; brew doctor; brew prune; brew upgrade;'
-alias iyarn='curl --compressed -o- -L https://yarnpkg.com/install.sh | bash;'
-alias procorereset='rbenv uninstall 2.4.3; rbenv install 2.4.3; export RBENV_ROOT=/usr/local/var/rbenv; export NVM_DIR="$HOME/.nvm"; . "/usr/local/opt/nvm/nvm.sh"; export RBENV_VERSION="2.4.3"; eval "$(rbenv init -)"; rbenv global 2.4.3; gem install bundler foreman; cd ~/work; rm -fr node_modules procore; git clone git@github.com:procore/procore.git; cd ~/work/procore; mkdir tmp; touch tmp/caching-dev.txt; cat ~/Desktop/backup/.procore_env > ~/work/procore/.env; nvm install 6; nvm install node; export GOPATH=$HOME/work; export PATH="$PATH:$GOPATH/bin"; defaults write com.apple.finder AppleShowAllFiles YES;';
-alias ibrew='brew install cockroach openssl xz youtube-dl libav watchman fzf go nvm rbenv elixir pyenv redis memcached awscli git icu4c pgcli hub; \
-$(brew --prefix)/opt/fzf/install; brew services start memcached; brew services start redis; brew services start postgresql; brew services start cockroach; git config --global user.name "William Huang"; git config --global user.email will.h86@gmail.com; cd /usr/local/include; ln -s ../opt/openssl/include/openssl .; cd ~; \
-brew cask install java slack transmission discord google-chrome vlc spectacle visual-studio-code plex-media-server; \
-mkdir work; cd ~/work && mkdir src; mkdir bin; mkdir pkg; cd ~; \
-curl -#L https://github.com/apex/up/releases/download/v0.1.6/up_0.1.6_darwin_amd64.tar.gz | tar -zx -C /usr/local/bin; \
-curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sh; \
-curl -sfL https://raw.githubusercontent.com/apex/up/master/install.sh | sh; \
-rsync -av ~/Desktop/backup/.ssh/ ~/.ssh; \
-chmod 700 ~/.ssh; \
-chmod 600 ~/.ssh/id_rsa; chmod 600 ~/.ssh/id_rsa.pub; \
-eval "$(ssh-agent -s)"; \
-ssh-add -K ~/.ssh/id_rsa; \
-CFLAGS="-I$(brew --prefix openssl)/include" \
-LDFLAGS="-L$(brew --prefix openssl)/lib" \
-pyenv install -v 2.7.8; \
-git config --global merge.conflictstyle diff3; \'
-alias freshinstall='ibrew; procorereset;'
-alias killvb="kill $(ps -e | grep VirtualBox | awk '{ print $1 }')"
-alias rnode='nvm use 8; nvm uninstall node; nvm install node; nvm uninstall 8; nvm install 8; nvm use 8; nvm alias default 8; inode;'
-alias inode='npm install -g expo-cli bs-platform prettier db-migrate'
-alias kill='killall Dock; killall -9 node; killall -9 rails; killall -9 ruby'
-alias pp='~/work/procore; echo "pulling procore/procore"; gp; gem install bundler; bundle install'
-alias viewer='~/work/procore/hydra_clients/insights; yarn; yarn start'
-alias punch='~/work/procore/hydra_clients/punchList; yarn; yarn start'
-alias rpunch='~/work/procore; bundle install; DEV_MODE=punchList bin/rails s'
-alias rviewer='~/work/procore; bundle install; DEV_MODE=insights bin/rails s'
-alias nviewer='~/work/procore/hydra_clients/insights_reports; yarn; yarn start'
-alias rnviewer='~/work/procore; bundle install; DEV_MODE=insights_reports bin/rails s'
-alias health='~/work/procore/hydra_clients/project_health; yarn; yarn start'
-alias rhealth='~/work/procore; bundle install; DEV_MODE=project_health bin/rails s'
-alias home='~/work/procore/hydra_clients/insights_home && yarn; yarn start'
-alias rhome='~/work/procore; bundle install; DEV_MODE=insights_home bin/rails s'
-alias lprocore='cat ~/Desktop/backup/.local.yml > ~/work/procore/config/database.yml; '
-alias initprocore='lprocore ~/work/procore; bundle exec rake db:drop && bundle exec rake db:create db:structure:load db:migrate db:seed;'
-alias o='cat ~/Desktop/backup/.office1.yml > ~/work/procore/config/database.yml;'
-alias o2='cat ~/Desktop/backup/.office2.yml > ~/work/procore/config/database.yml;'
-alias o3='cat ~/Desktop/backup/.office3.yml > ~/work/procore/config/database.yml;'
-alias o4='cat ~/Desktop/backup/.office4.yml > ~/work/procore/config/database.yml;'
-alias o5='cat ~/Desktop/backup/.office5.yml > ~/work/procore/config/database.yml;'
-alias r='cat ~/Desktop/backup/.remote1.yml > ~/work/procore/config/database.yml; ssh db1.office.procore;'
-alias r2='cat ~/Desktop/backup/.remote2.yml > ~/work/procore/config/database.yml; ssh db1.office.procore;'
-alias r3='cat ~/Desktop/backup/.remote3.yml > ~/work/procore/config/database.yml; ssh db1.office.procore;'
-alias r4='cat ~/Desktop/backup/.remote4.yml > ~/work/procore/config/database.yml; ssh db1.office.procore;'
-alias r5='cat ~/Desktop/backup/.remote5.yml > ~/work/procore/config/database.yml; ssh db1.office.procore;'
-alias c='code .;';
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+#node
+export NVM_DIR="$HOME/.nvm";
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh";  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion";  # This loads nvm bash_completion
+
+#yarn
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+alias ph='ggpush';
+alias gp='git pull origin $(git rev-parse --abbrev-ref HEAD)'
+alias gpom='git pull origin master'
+alias gcom='git checkout origin/master'
+alias c='code .';
+alias gc='git checkout';
+alias ws='cd ~/workspace';
 alias v='code ~/.zshrc';
 alias vdl='cd ~/Desktop && mkdir -p vdl && cd vdl && youtube-dl -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4" -i'
 alias sdl="cd ~/Desktop && mkdir -p sdl && cd sdl && youtube-dl -o '%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' -x -i --audio-format 'mp3' --audio-quality 0"
-alias gp='git pull origin $(git rev-parse --abbrev-ref HEAD);'
-alias gprunedevelop='git branch | grep -v "develop" | xargs git branch -D'
-alias gprunemaster='git branch | grep -v "master" | xargs git branch -D'
-alias gpom='gp; git pull origin master;'
-alias gc='git checkout'
-alias gs='git status;'
-alias gf='git fetch;'
-alias ga='git merge --abort'
-alias gd='git diff'
-alias gcom='git checkout origin/master '
-alias gl='git log;'
-alias gaa='git add -A'
-alias gcm='gp; gaa; git commit -m'
-alias ph='git push'
-alias gdm='git diff origin/master'
-alias upgrade='tab u; tab pp; tab rnode; tab iyarn;'
-alias ws='cd ~/work';
-alias beg='bundle exec guard;';
-alias yl='gcom yarn.lock';
-alias yw='yarn test --watch';
-alias nr='npm run'
-alias dc='docker system prune -a';
-alias nukehydra='~/work/procore; rm -rf hydra_clients/*/node_modules;';
-alias awslambda-npm-install="docker run -v \$PWD:/var/task iopipe/awslambda-npm-install:v8.10.0"
+alias size="du -hs * | sort -hs";
+alias gs="git status";
+alias nuke="find . -name 'node_modules' -type d -prune -print -exec rm -rf '{}' \;"
 
 resetToSha() {
   git reset --hard $1;
   git reset --soft HEAD@{1}
   git commit -m "Reset to $1"
 }
-
-revertSha() {
-  git revert $1;
-}
-
-function compare() {
-  hub compare `git rev-parse --abbrev-ref HEAD`
-}
-
-#yarn
-export PATH="$HOME/.yarn/bin:$PATH";
-export PATH="$PATH:'yarn global bin'";
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
-
-#go
-export GOPATH=$HOME/work;
-export PATH="$PATH:$GOPATH/bin";
-
-#ruby
-export RBENV_ROOT=/usr/local/var/rbenv;
-export RBENV_VERSION="2.4.3";
-eval "$(rbenv init -)";
-rbenv global 2.4.3;
-
-#python
-eval "$(pyenv init -)"
-pyenv global 2.7.8
-
-#postgres9.5
-export PATH="/usr/local/opt/postgresql@9.5/bin:$PATH"
-
-#fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-#rust
-source $HOME/.cargo/env
