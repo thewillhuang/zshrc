@@ -100,7 +100,7 @@ source $ZSH/oh-my-zsh.sh
 
 eval "$(fnm env --multi)"
 
-alias init='/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"; brew install fnm git youtube-dl libav; brew cask install java slack transmission discord google-chrome vlc spectacle visual-studio-code; git config --global merge.conflictstyle diff3; git config --global user.name "William Huang"; git config --global user.email will.h86@gmail.com;'
+alias init='/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"; brew install Schniz/tap/fnm git youtube-dl libav; brew cask install java transmission discord google-chrome vlc rectangle visual-studio-code; git config --global merge.conflictstyle diff3; git config --global user.name "William Huang"; git config --global user.email will.h86@gmail.com;'
 alias ph='ggpush';
 alias gp='git pull origin $(git rev-parse --abbrev-ref HEAD)'
 alias gpom='git pull origin master'
