@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/william/.oh-my-zsh"
+export ZSH="/Users/williamhuang/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -100,7 +100,7 @@ source $ZSH/oh-my-zsh.sh
 
 eval "$(fnm env --multi)"
 
-alias init='/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"; brew install Schniz/tap/fnm git youtube-dl libav az terraform; fnm install 12; fnm use 12; brew cask install java discord google-chrome vlc rectangle transmission visual-studio-code; git config --global merge.conflictstyle diff3; git config --global user.name "William Huang"; git config --global user.email will.h86@gmail.com; git config pull.rebase false;'
+alias init='/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"; brew install Schniz/tap/fnm git youtube-dl libav az terraform; fnm install 12; fnm use 12; brew cask install java discord google-chrome vlc rectangle transmission visual-studio-code; git config --global merge.conflictstyle diff3; git config --global user.name "William Huang"; git config --global user.email will.h86@gmail.com; git config --global pull.rebase false; sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"; mkdir workspace'
 alias ph='ggpush';
 alias gp='git pull origin $(git rev-parse --abbrev-ref HEAD)'
 alias gpom='git pull origin master'
@@ -120,6 +120,4 @@ resetToSha() {
   git reset --soft HEAD@{1}
   git commit -m "Reset to $1"
 }
-# tabtab source for packages
-# uninstall by removing these lines
-[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
