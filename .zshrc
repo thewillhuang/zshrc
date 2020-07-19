@@ -100,7 +100,7 @@ source $ZSH/oh-my-zsh.sh
 
 eval "$(fnm env --multi)"
 
-alias init='/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"; brew install Schniz/tap/fnm git youtube-dl libav az terraform; fnm install 12; fnm use 12; brew cask install java discord google-chrome vlc rectangle transmission visual-studio-code; git config --global merge.conflictstyle diff3; git config --global user.name "William Huang"; git config --global user.email will.h86@gmail.com; git config --global pull.rebase false; sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"; mkdir workspace'
+alias init='/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"; brew install Schniz/tap/fnm git youtube-dl libav az terraform gcc golang rustup; fnm install 12; fnm use 12; brew cask install java discord google-chrome vlc rectangle transmission visual-studio-code; git config --global merge.conflictstyle diff3; git config --global user.name "William Huang"; git config --global user.email will.h86@gmail.com; git config --global pull.rebase false; sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"; mkdir workspace;'
 alias ph='ggpush';
 alias gp='git pull origin $(git rev-parse --abbrev-ref HEAD)'
 alias gpom='git pull origin master'
@@ -120,4 +120,5 @@ resetToSha() {
   git reset --soft HEAD@{1}
   git commit -m "Reset to $1"
 }
+
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
