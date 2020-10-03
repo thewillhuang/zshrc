@@ -105,6 +105,7 @@ alias ph='ggpush';
 alias gp='git pull origin $(git rev-parse --abbrev-ref HEAD)'
 alias gpom='git pull origin master'
 alias gpo='git pull origin'
+alias gbd='git branch -D'
 alias gcom='git checkout origin/master'
 alias c='code .';
 alias gc='git checkout';
