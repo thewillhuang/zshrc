@@ -98,7 +98,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-eval "$(fnm env --multi)"
+eval "$(fnm env)"
 
 alias init='/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"; brew install Schniz/tap/fnm git youtube-dl libav az terraform packer vault nomad gcc golang rustup; fnm install 12; fnm use 12; rustup-init -y; brew cask install java dotnet discord google-chrome plex-media-server firefox vlc rectangle transmission visual-studio-code; git config --global merge.conflictstyle diff3; git config --global user.name "William Huang"; git config --global user.email will.h86@gmail.com; git config --global pull.rebase false; git config --global core.autocrlf input; sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"; mkdir workspace;'
 alias ph='ggpush';
